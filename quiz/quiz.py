@@ -18,9 +18,22 @@ def ask_questions():
             questions.append(text)
         else:
             answers.append(text)
+        
+    number_of_questions = len(questions)
+    questions_and_answers = zip(questions, answers)
     
-    for question, answer in zip(questions, answers):
+    score = 0
+    
+    for question, answer in questions_and_answers:
         guess = input(question + "> ")
+        if guess == answer:
+            score += 1
+            print("right!")
+            print(score)
+        else:
+            print("Wrong!")
+            
+    print("You've got {0} correct out of {1}".format(score, number_of_questions))
     
 def add_question():
     print(" ")
